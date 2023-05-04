@@ -26,12 +26,12 @@ public class GameCommand implements CommandExecutor {
             }
             if (args[0].equalsIgnoreCase("setlobby")) {
                 if (args.length == 1) {
-                    pl.getLocation().getConfig().set("game.spawns.lobby.name", p.getWorld().getName());
-                    pl.getLocation().getConfig().set("game.spawns.lobby.x", p.getLocation().getX());
-                    pl.getLocation().getConfig().set("game.spawns.lobby.y", p.getLocation().getY());
-                    pl.getLocation().getConfig().set("game.spawns.lobby.z", p.getLocation().getZ());
-                    pl.getLocation().getConfig().set("game.spawns.lobby.pitch", p.getLocation().getPitch());
-                    pl.getLocation().getConfig().set("game.spawns.lobby.yaw", p.getLocation().getYaw());
+                    pl.getConfig().set("game.spawns.lobby.name", p.getWorld().getName());
+                    pl.getConfig().set("game.spawns.lobby.x", p.getLocation().getX());
+                    pl.getConfig().set("game.spawns.lobby.y", p.getLocation().getY());
+                    pl.getConfig().set("game.spawns.lobby.z", p.getLocation().getZ());
+                    pl.getConfig().set("game.spawns.lobby.pitch", p.getLocation().getPitch());
+                    pl.getConfig().set("game.spawns.lobby.yaw", p.getLocation().getYaw());
 
                     pl.saveConfig();
                     pl.reloadConfig();
@@ -43,12 +43,12 @@ public class GameCommand implements CommandExecutor {
             }
             if (args[0].equalsIgnoreCase("setend")) {
                 if (args.length == 1) {
-                    pl.getLocation().getConfig().set("game.spawns.end.name", p.getWorld().getName());
-                    pl.getLocation().getConfig().set("game.spawns.end.x", p.getLocation().getX());
-                    pl.getLocation().getConfig().set("game.spawns.end.y", p.getLocation().getY());
-                    pl.getLocation().getConfig().set("game.spawns.end.z", p.getLocation().getZ());
-                    pl.getLocation().getConfig().set("game.spawns.end.pitch", p.getLocation().getPitch());
-                    pl.getLocation().getConfig().set("game.spawns.end.yaw", p.getLocation().getYaw());
+                    pl.getConfig().set("game.spawns.end.name", p.getWorld().getName());
+                    pl.getConfig().set("game.spawns.end.x", p.getLocation().getX());
+                    pl.getConfig().set("game.spawns.end.y", p.getLocation().getY());
+                    pl.getConfig().set("game.spawns.end.z", p.getLocation().getZ());
+                    pl.getConfig().set("game.spawns.end.pitch", p.getLocation().getPitch());
+                    pl.getConfig().set("game.spawns.end.yaw", p.getLocation().getYaw());
 
                     pl.saveConfig();
                     pl.reloadConfig();
