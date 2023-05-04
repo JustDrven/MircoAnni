@@ -50,6 +50,14 @@ public class Game {
         }
     }
 
+    public void GameChecktoStart() {
+        if (getState() != State.LOBBY) return;
+
+        if (this.getPlayerManager().getPlayers().size() >= 1) {
+            this.getTaskManager().getGameStartTask().runTaskTimer(pl, 0L, 20L);
+        }
+    }
+
     public State getState() {
         return state;
     }

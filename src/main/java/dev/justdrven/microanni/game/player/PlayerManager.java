@@ -13,6 +13,7 @@ import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 public class PlayerManager {
 
@@ -47,9 +48,10 @@ public class PlayerManager {
         obj.setDisplaySlot(DisplaySlot.SIDEBAR);
         if (game.getState() == State.LOBBY) {
             obj.setDisplayName(Colors.format("&r &3&lMicroAnni&r "));
-            obj.getScore(Colors.format("&r&l  &c ")).setScore(2);
-            obj.getScore(Colors.format("&fMap: &bVoting..")).setScore(2);
-            obj.getScore(Colors.format("&fPlayers: &b" + game.getPlayerManager().getPlayers().size())).setScore(2);
+            obj.getScore(Colors.format("&r&l  &c ")).setScore(5);
+            obj.getScore(Colors.format("&fMap: &bVoting..")).setScore(4);
+            obj.getScore(Colors.format("&fPlayers: &b" + (int) game.getPlayerManager().getPlayers().stream()
+                    .filter(players -> !players.isSpectating()).count())).setScore(3);
             obj.getScore(Colors.format("&e&l  &e&l  ")).setScore(2);
             obj.getScore(Colors.format("&7 &nmc.valonity.xyz&r  ")).setScore(1);
         }
@@ -57,7 +59,8 @@ public class PlayerManager {
             obj.setDisplayName(Colors.format("&r &3&lMicroAnni &f| &b" + game.toTime(game.getTaskManager().getGameStartTask().time)));
             obj.getScore(Colors.format("&r&l  &c ")).setScore(5);
             obj.getScore(Colors.format("&fMap: &b" + game.getPlugin().getConfig().getString("map-name"))).setScore(4);
-            obj.getScore(Colors.format("&fPlayers: &b" + game.getPlayerManager().getPlayers().size())).setScore(3);
+            obj.getScore(Colors.format("&fPlayers: &b" + (int) game.getPlayerManager().getPlayers().stream()
+                    .filter(players -> !players.isSpectating()).count())).setScore(3);
             obj.getScore(Colors.format("&e&l  &e&l  ")).setScore(2);
             obj.getScore(Colors.format("&7 &nmc.valonity.xyz&r  ")).setScore(1);
         }

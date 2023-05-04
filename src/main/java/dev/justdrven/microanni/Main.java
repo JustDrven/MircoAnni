@@ -27,4 +27,5 @@ public final class Main extends JavaPlugin {
     public ConfigFile getLocation() {
         return location;
     }
+
 }

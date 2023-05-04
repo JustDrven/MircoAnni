@@ -30,6 +30,7 @@ public class PlayerListener implements Listener {
         pl.getGame().getPlayerManager().clear(p);
         pl.getGame().getPlayerManager().update();
         if (pl.getGame().getState() == State.LOBBY) {
+            pl.getGame().GameChecktoStart();
             p.teleport(pl.getGame().getMapManager().getLobby());
             pl.getGame().getPlayerManager().getPlayers().stream()
                     .filter(players -> !players.isSpectating())
@@ -47,6 +48,7 @@ public class PlayerListener implements Listener {
         pl.getGame().getPlayerManager().remove(p.getUniqueId());
         pl.getGame().getPlayerManager().update();
         if (pl.getGame().getState() == State.LOBBY) {
+            pl.getGame().GameChecktoStart();
             pl.getGame().getPlayerManager().getPlayers().stream()
                     .filter(players -> !players.isSpectating())
                     .forEach(ps -> {

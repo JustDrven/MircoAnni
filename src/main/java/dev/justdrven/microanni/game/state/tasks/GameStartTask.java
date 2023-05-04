@@ -20,6 +20,14 @@ public class GameStartTask extends BukkitRunnable {
     @Override
     public void run() {
         if (game.getState() != State.LOBBY) return;
+
+        if (game.getPlayerManager().getPlayers().size() <
+                game.getPlugin().getConfig().getInt("players-to-start")) {
+            time = 10;
+            game.setState(State.LOBBY);
+            cancel();
+        }
+
         if (time == 10 || time == 3 || time == 2) {
             game.getPlayerManager().getPlayers().stream()
                     .filter(gamePlayers -> !gamePlayers.isSpectating()).forEach(players -> {
@@ -57,6 +65,8 @@ public class GameStartTask extends BukkitRunnable {
             game.setState(State.INGAME);
             cancel();
         }
+
+        game.getPlayerManager().update();
 
         time--;
     }
