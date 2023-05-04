@@ -14,12 +14,12 @@ public class MapManager {
         this.pl = pl;
 
         // Lobby location
-        String worldName = pl.getLocation().getConfig().getString("game.spawns.lobby.name");
-        double lobbyx = pl.getLocation().getConfig().getDouble("game.spawns.lobby.x");
-        double lobbyy = pl.getLocation().getConfig().getDouble("game.spawns.lobby.y");
-        double lobbyz = pl.getLocation().getConfig().getDouble("game.spawns.lobby.z");
-        float lobbypitch = (float) pl.getLocation().getConfig().getDouble("game.spawns.lobby.pitch");
-        float lobbyyaw = (float) pl.getLocation().getConfig().getDouble("game.spawns.lobby.yaw");
+        String worldName = pl.getConfig().getString("game.spawns.lobby.name");
+        double lobbyx = pl.getConfig().getDouble("game.spawns.lobby.x");
+        double lobbyy = pl.getConfig().getDouble("game.spawns.lobby.y");
+        double lobbyz = pl.getConfig().getDouble("game.spawns.lobby.z");
+        float lobbypitch = (float) pl.getConfig().getDouble("game.spawns.lobby.pitch");
+        float lobbyyaw = (float) pl.getConfig().getDouble("game.spawns.lobby.yaw");
 
         this.lobby = new Location(Bukkit.getWorld(worldName),
                 lobbyx,
@@ -29,13 +29,12 @@ public class MapManager {
         this.lobby.setPitch(lobbypitch);
 
         // End location
-
-        String endWorld = pl.getLocation().getConfig().getString("game.spawns.end.name");
-        double endx = pl.getLocation().getConfig().getDouble("game.spawns.end.x");
-        double endy = pl.getLocation().getConfig().getDouble("game.spawns.end.y");
-        double endz = pl.getLocation().getConfig().getDouble("game.spawns.end.z");
-        float endpitch = (float) pl.getLocation().getConfig().getDouble("game.spawns.end.pitch");
-        float endyaw = (float) pl.getLocation().getConfig().getDouble("game.spawns.end.yaw");
+        String endWorld = pl.getConfig().getString("game.spawns.end.name");
+        double endx = pl.getConfig().getDouble("game.spawns.end.x");
+        double endy = pl.getConfig().getDouble("game.spawns.end.y");
+        double endz = pl.getConfig().getDouble("game.spawns.end.z");
+        float endpitch = (float) pl.getConfig().getDouble("game.spawns.end.pitch");
+        float endyaw = (float) pl.getConfig().getDouble("game.spawns.end.yaw");
 
         this.end = new Location(Bukkit.getWorld(endWorld),
                 endx,
