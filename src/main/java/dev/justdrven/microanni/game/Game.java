@@ -1,6 +1,7 @@
 package dev.justdrven.microanni.game;
 
 import dev.justdrven.microanni.Main;
+import dev.justdrven.microanni.game.map.MapManager;
 import dev.justdrven.microanni.game.player.PlayerManager;
 import dev.justdrven.microanni.game.state.State;
 import dev.justdrven.microanni.game.state.tasks.TaskManager;
@@ -10,6 +11,7 @@ public class Game {
     private final Main pl;
     private final PlayerManager playerManager;
     private final TaskManager taskManager;
+    private final MapManager mapManager;
     private State state;
 
     public Game(Main pl) {
@@ -17,6 +19,7 @@ public class Game {
         this.state = State.LOBBY;
         this.playerManager = new PlayerManager(this);
         this.taskManager = new TaskManager(this);
+        this.mapManager = new MapManager(pl);
     }
 
     public PlayerManager getPlayerManager() {
@@ -25,6 +28,10 @@ public class Game {
 
     public TaskManager getTaskManager() {
         return taskManager;
+    }
+
+    public MapManager getMapManager() {
+        return mapManager;
     }
 
     public Main getPlugin() {

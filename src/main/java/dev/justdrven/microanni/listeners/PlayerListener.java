@@ -6,7 +6,6 @@ import dev.justdrven.microanni.game.state.State;
 import dev.justdrven.microanni.utils.Colors;
 
 import org.bukkit.entity.Player;
-import org.bukkit.entity.Villager;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
@@ -31,6 +30,7 @@ public class PlayerListener implements Listener {
         pl.getGame().getPlayerManager().clear(p);
         pl.getGame().getPlayerManager().update();
         if (pl.getGame().getState() == State.LOBBY) {
+            p.teleport(pl.getGame().getMapManager().getLobby());
             pl.getGame().getPlayerManager().getPlayers().stream()
                     .filter(players -> !players.isSpectating())
                     .forEach(ps -> {
@@ -77,7 +77,7 @@ public class PlayerListener implements Listener {
             public void run() {
                 victim.spigot().respawn();
             }
-        }.runTaskLater(pl, 10L);
+        }.runTaskLater(pl, 5L);
 
 
         GameVictim.setSpectating();
