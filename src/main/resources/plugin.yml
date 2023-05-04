@@ -2,3 +2,6 @@ name: MircoAnni
 version: '${version}'
 main: dev.justdrven.microanni.Main
 authors: [ Drven ]
+
+commands:
+  game:

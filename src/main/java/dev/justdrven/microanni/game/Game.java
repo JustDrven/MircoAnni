@@ -35,6 +35,14 @@ public class Game {
         return String.format("%02d:%02d", seconds / 60, seconds % 60);
     }
 
+    public void checkPlayersToEnd() {
+        if (getState() != State.INGAME) return;
+
+        if (this.getPlayerManager().getPlayers().size() <= 1) {
+            // TODO: Task to end
+        }
+    }
+
     public State getState() {
         return state;
     }
