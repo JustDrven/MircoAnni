@@ -6,6 +6,7 @@ import dev.justdrven.microanni.game.player.PlayerManager;
 import dev.justdrven.microanni.game.state.State;
 import dev.justdrven.microanni.game.state.tasks.TaskManager;
 import dev.justdrven.microanni.menu.MenuManager;
+import dev.justdrven.microanni.team.TeamManager;
 
 public class Game {
 
@@ -14,6 +15,7 @@ public class Game {
     private final TaskManager taskManager;
     private final MapManager mapManager;
     private final MenuManager menuManager;
+    private final TeamManager teamManager;
     private State state;
 
     public Game(Main pl) {
@@ -23,6 +25,7 @@ public class Game {
         this.taskManager = new TaskManager(this);
         this.mapManager = new MapManager(pl);
         this.menuManager = new MenuManager(pl);
+        this.teamManager = new TeamManager(pl);
     }
 
     public PlayerManager getPlayerManager() {
@@ -35,6 +38,10 @@ public class Game {
 
     public MapManager getMapManager() {
         return mapManager;
+    }
+
+    public TeamManager getTeamManager() {
+        return teamManager;
     }
 
     public MenuManager getMenuManager() {
