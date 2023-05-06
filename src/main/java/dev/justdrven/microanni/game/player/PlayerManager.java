@@ -71,6 +71,9 @@ public class PlayerManager {
             obj.getScore(Colors.format("&e&l  &e&l  ")).setScore(2);
             obj.getScore(Colors.format("&7 &nmc.valonity.xyz&r  ")).setScore(1);
         }
+        this.getPlayers().stream().filter(playerss -> !playerss.isSpectating()).forEach(ps -> {
+            ps.getBukkitPlayer().setScoreboard(board);
+        });
     }
 
     public Set<GamePlayer> getPlayers() {

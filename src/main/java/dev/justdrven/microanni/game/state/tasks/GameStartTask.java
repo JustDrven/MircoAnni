@@ -28,7 +28,7 @@ public class GameStartTask extends BukkitRunnable {
             cancel();
         }
 
-        if (time == 10 || time == 3 || time == 2) {
+        if (time == 3 || time == 2) {
             game.getPlayerManager().getPlayers().stream()
                     .filter(gamePlayers -> !gamePlayers.isSpectating()).forEach(players -> {
                         Titles.send(players.getBukkitPlayer(), Colors.format("&3&l" + time),
