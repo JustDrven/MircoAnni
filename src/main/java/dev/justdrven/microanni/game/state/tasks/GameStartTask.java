@@ -28,7 +28,7 @@ public class GameStartTask extends BukkitRunnable {
             cancel();
         }
 
-        if (time == 3 || time == 2) {
+        if (time == 3 || time == 2 || time == 1) {
             game.getPlayerManager().getPlayers().stream()
                     .filter(gamePlayers -> !gamePlayers.isSpectating()).forEach(players -> {
                         Titles.send(players.getBukkitPlayer(), Colors.format("&3&l" + time),
@@ -36,17 +36,6 @@ public class GameStartTask extends BukkitRunnable {
 
                         players.getBukkitPlayer().playSound(players.getBukkitPlayer().getLocation(),
                                 Sound.ORB_PICKUP, 1.0F, 1.0F);
-                    });
-        }
-        if (time == 1) {
-            game.getPlayerManager().getPlayers().stream()
-                    .filter(gamePlayers -> !gamePlayers.isSpectating()).forEach(players -> {
-                        Titles.send(players.getBukkitPlayer(), Colors.format("&3&l" + time),
-                                Colors.format("&fGame start in"));
-
-                        players.getBukkitPlayer().playSound(players.getBukkitPlayer().getLocation(),
-                                Sound.ORB_PICKUP, 1.0F, 1.0F);
-
                     });
         }
         if (time == 0) {

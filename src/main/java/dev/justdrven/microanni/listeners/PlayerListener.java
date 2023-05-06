@@ -5,6 +5,7 @@ import dev.justdrven.microanni.game.player.GamePlayer;
 import dev.justdrven.microanni.game.state.State;
 import dev.justdrven.microanni.utils.Colors;
 
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -12,6 +13,8 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.scheduler.BukkitRunnable;
 
 public class PlayerListener implements Listener {
@@ -38,6 +41,13 @@ public class PlayerListener implements Listener {
                         ps.getBukkitPlayer().sendMessage(Colors.format("&8[&bServer&8] &3" + p.getName() + "&f has joined the game. &3("
                                 + pl.getGame().getPlayerManager().getPlayers().size() + ")"));
                     });
+
+            ItemStack team = new ItemStack(Material.WOOL, 1, (byte)0);
+            ItemMeta teammeta = team.getItemMeta();
+            teammeta.setDisplayName(Colors.format("&cTeam Selector"));
+            team.setItemMeta(teammeta);
+
+            p.getInventory().setItem(0, team);
         }
     }
 
